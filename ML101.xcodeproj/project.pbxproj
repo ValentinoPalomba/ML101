@@ -16,6 +16,7 @@
 		6870774C24324589008B067E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6870774A24324589008B067E /* LaunchScreen.storyboard */; };
 		687077572432458A008B067E /* ML101Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687077562432458A008B067E /* ML101Tests.swift */; };
 		687077622432458A008B067E /* ML101UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687077612432458A008B067E /* ML101UITests.swift */; };
+		75A3F99E24349392003F369D /* DogModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 75A3F99D24349391003F369D /* DogModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6870775D2432458A008B067E /* ML101UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ML101UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		687077612432458A008B067E /* ML101UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ML101UITests.swift; sourceTree = "<group>"; };
 		687077632432458A008B067E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75A3F99D24349391003F369D /* DogModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DogModel.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				6870773E24324586008B067E /* SceneDelegate.swift */,
 				6870774024324586008B067E /* ViewController.swift */,
 				6870774224324586008B067E /* Main.storyboard */,
+				75A3F99D24349391003F369D /* DogModel.mlmodel */,
 				6870774824324589008B067E /* Assets.xcassets */,
 				6870774A24324589008B067E /* LaunchScreen.storyboard */,
 				6870774D24324589008B067E /* Info.plist */,
@@ -264,6 +267,7 @@
 			files = (
 				6870774124324586008B067E /* ViewController.swift in Sources */,
 				6870774724324586008B067E /* ML101.xcdatamodeld in Sources */,
+				75A3F99E24349392003F369D /* DogModel.mlmodel in Sources */,
 				6870773D24324586008B067E /* AppDelegate.swift in Sources */,
 				6870773F24324586008B067E /* SceneDelegate.swift in Sources */,
 			);
@@ -439,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6JY969UVJY;
 				INFOPLIST_FILE = ML101/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -456,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6JY969UVJY;
 				INFOPLIST_FILE = ML101/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
