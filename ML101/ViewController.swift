@@ -20,7 +20,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        resultsLabel.alpha = 0.0
         rectSfumato.layer.cornerRadius = 31
         rectSfumato.clipsToBounds = true
         rectSfumato.layer.masksToBounds = false
@@ -30,6 +30,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         rectSfumato.layer.shadowColor = UIColor.black.cgColor
         // Do any additional setup after loading the view.
     }
+    
+    
     
     @IBAction func choosePhoto(_ sender: Any) {
         
@@ -71,7 +73,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    
+    func showResults(){
+        resultsLabel.alpha = 1.0
+    }
+    
+    
+    
     /* Parte Aggiunta Machine Learning, Qui Dichiaro la richiesta da fare al modello */
+    
      lazy var vnRequest : VNCoreMLRequest = {
             let model = try! VNCoreMLModel(for: DogModel().model)
             let request = VNCoreMLRequest(model: model) { [weak self] request , _ in
@@ -80,6 +91,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             request.imageCropAndScaleOption = .centerCrop
             return request
     }()
+    
+    /* Classify function used to make the image respect property and orientation of ML model*/
     
     func classify(image : UIImage){
            DispatchQueue.global(qos: .userInitiated).async {
@@ -91,6 +104,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                
            
        }
+    
        
     func processingResult(for request: VNRequest){
            DispatchQueue.main.async {
@@ -102,13 +116,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     let percentage = formatter.string(from: result.confidence * 100 as NSNumber)!
                 let integerPercentage = (result.confidence*100 as Float)
                 if Int(integerPercentage) > 30 {
-                    return "Your dog is \(result.identifier) \(percentage)%"
+                    return "Your dog is \(result.identifier.components(separatedBy: CharacterSet.decimalDigits).joined()) \(percentage)%"
                 }
                 else{
                    return "Dog not recognized"
                 }
-               }.joined(separator: "\n")
-              
+               }.joined()
+            self.showResults()
            }
            
            
